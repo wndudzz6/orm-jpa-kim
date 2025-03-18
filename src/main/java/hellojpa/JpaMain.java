@@ -42,7 +42,7 @@ public class JpaMain {
             System.out.println("준영속 상태 dddd로 변경"+member2);
 
             //삭제 작업 예제
-            System.out.println("==삭제작업==");
+            System.out.println("==삭제작업=="); //remove는 DB에 있는 데이터까지 삭제. clear는 영속성 컨텍스트와 모든 데이터 분리
             tx.begin();
             Member memberToClear = new Member(18L, "clear");
             System.out.println("18L clear 등록");
