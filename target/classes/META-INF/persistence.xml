@@ -16,7 +16,11 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments"  value="true"/>
+<<<<<<< HEAD
            <property name="hibernate.hbm2ddl.auto" value="create" />
+=======
+           <!-- <property name="hibernate.hbm2ddl.auto" value="create" /> >-->
+>>>>>>> bbae2e875642e2f9c6f151eb56911202b359de17
         </properties>
     </persistence-unit>
 
