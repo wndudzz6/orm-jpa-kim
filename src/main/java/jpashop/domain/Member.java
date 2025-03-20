@@ -1,23 +1,24 @@
 package jpashop.domain;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-//@Entity
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class Member {
 
-    //@Id @GeneratedValue
-   // @Column(name = "MEMBER_ID")
+    @Id @GeneratedValue
+    @Column(name = "MEMBER_ID")
     private Long id;
-
-
     private String name;
     private String city;
     private String street;
     private String zipcode;
+
+    @OneToMany(mappedBy = "member") //양방향을 위한 예시일 뿐 객체지향적으로 대단히 잘못된 설계
+    private List<Order> orders = new ArrayList<>();
 
     public String getCity() {
         return city;

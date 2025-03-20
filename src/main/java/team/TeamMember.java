@@ -2,7 +2,7 @@ package team;
 
 import jakarta.persistence.*;
 
-@Entity
+//@Entity
 public class TeamMember {
 
     @Id @GeneratedValue
@@ -19,6 +19,10 @@ public class TeamMember {
 
     public Team getTeam() {
         return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     public void changeTeam(Team team) {
