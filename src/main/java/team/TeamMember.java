@@ -21,8 +21,10 @@ public class TeamMember {
         return team;
     }
 
-    public void setTeam(Team team) {
+    public void changeTeam(Team team) {
         this.team = team;
+        team.getTeamMembers().add(this);
+        //항상 멤버에서 팀 저장하고 팀에서도 멤버 저장하게끔 로직 추가
     }
 
     public Long getId() {
