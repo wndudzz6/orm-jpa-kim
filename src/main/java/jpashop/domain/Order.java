@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "ORDERS") //DB에서 ORDER BY 명령어 떄문에 안될 때가 있어서 ORDERS
+//@Entity
+//@Table(name = "ORDERS") //DB에서 ORDER BY 명령어 떄문에 안될 때가 있어서 ORDERS
 public class Order {
 
     @Id @GeneratedValue
