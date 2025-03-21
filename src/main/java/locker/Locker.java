@@ -2,7 +2,7 @@ package locker;
 
 import jakarta.persistence.*;
 
-@Entity
+//@Entity
 public class Locker {
 
     @Id @GeneratedValue
