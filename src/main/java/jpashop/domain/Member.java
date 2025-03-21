@@ -6,8 +6,8 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
-public class Member {
+@Entity
+public class Member extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "MEMBER_ID")

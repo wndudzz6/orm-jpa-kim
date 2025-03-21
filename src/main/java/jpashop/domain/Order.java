@@ -6,9 +6,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
+@Entity
 @Table(name = "ORDERS") //DB에서 ORDER BY 명령어 떄문에 안될 때가 있어서 ORDERS
-public class Order {
+public class Order extends BaseEntity{
 
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")

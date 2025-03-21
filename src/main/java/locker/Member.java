@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-@Entity
+//@Entity
 public class Member extends BaseEntity {
 
     @Id @GeneratedValue
