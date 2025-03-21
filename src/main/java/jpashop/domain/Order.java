@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
+@Entity
 @Table(name = "ORDERS") //DB에서 ORDER BY 명령어 떄문에 안될 때가 있어서 ORDERS
 public class Order {
 
@@ -19,6 +19,10 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "MEMBER_ID")
     private Member member; //DB에서는 낙타 안써서 DB 관련으로는 뱀 씀
+
+    @OneToOne
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery;
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();

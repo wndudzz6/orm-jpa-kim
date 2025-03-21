@@ -3,7 +3,7 @@ package product;
 import jakarta.persistence.*;
 
 //@ManyToMany -> @OneToMany, @ManyToOne
-@Entity
+//@Entity
 public class MemberProduct {
 
     @Id @GeneratedValue

@@ -6,7 +6,7 @@ import locker.Locker;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+//@Entity
 public class Member {
 
     @Id @GeneratedValue
