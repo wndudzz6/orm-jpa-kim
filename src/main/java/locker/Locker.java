@@ -2,8 +2,8 @@ package locker;
 
 import jakarta.persistence.*;
 
-//@Entity
-public class Locker {
+@Entity
+public class Locker extends BaseEntity {
 
     @Id @GeneratedValue
     private Long id;
