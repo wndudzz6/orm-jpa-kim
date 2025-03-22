@@ -10,6 +10,6 @@ public class Locker extends BaseEntity {
 
     private String name;
 
-    @OneToOne(mappedBy = "locker")
+    @OneToOne(mappedBy = "locker", fetch = FetchType.LAZY)
     private Member member;
 }

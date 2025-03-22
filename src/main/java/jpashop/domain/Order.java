@@ -16,11 +16,11 @@ public class Order extends BaseEntity{
 
 //    @Column(name = "MEMBER_ID") //명확하게 하려면 name으로 지정해주기
 //    private Long member_id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member; //DB에서는 낙타 안써서 DB 관련으로는 뱀 씀
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery;
 

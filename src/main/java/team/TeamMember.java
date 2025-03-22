@@ -13,7 +13,7 @@ public class TeamMember {
     private String username;
 
     //team이 1이고 teamMember가 n : 1팀에 여러 명 소속
-    @ManyToOne
+    @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
