@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Member {
@@ -25,6 +27,7 @@ public class Member {
 
     @OneToMany(mappedBy = "member") //양방향을 위한 예시일 뿐 객체지향적으로 대단히 잘못된 설계
     private List<Order> orders = new ArrayList<>();
+
 
     public Address getHomeAddress() {
         return homeAddress;
