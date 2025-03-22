@@ -1,5 +1,6 @@
 package jpashop.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 import java.util.Objects;
@@ -7,9 +8,16 @@ import java.util.Objects;
 @Embeddable
 public class Address {
 
+    @Column(length = 10)
     private String city;
+    @Column(length = 20)
     private String street;
+    @Column(length = 50)
     private String zipcode;
+
+    public String fullAddress() {
+        return city + " " + street + " " + zipcode;
+    }
 
     public Address() {}
 

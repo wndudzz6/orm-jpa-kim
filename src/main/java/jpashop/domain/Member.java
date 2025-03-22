@@ -23,18 +23,18 @@ public class Member {
 
     //주소
     @Embedded
-    private Address homeAddress;
+    private Address address;
 
     @OneToMany(mappedBy = "member") //양방향을 위한 예시일 뿐 객체지향적으로 대단히 잘못된 설계
     private List<Order> orders = new ArrayList<>();
 
 
     public Address getHomeAddress() {
-        return homeAddress;
+        return address;
     }
 
     public void setHomeAddress(Address address) {
-        this.homeAddress = address;
+        this.address = address;
     }
 
     public List<Order> getOrders() {
