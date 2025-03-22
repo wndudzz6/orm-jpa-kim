@@ -19,6 +19,6 @@ public class Member {
 //    @JoinTable(name = "MEMBER_PRODUCT") //새로 생기는 테이블
 //    private List<Product> products = new ArrayList<>();
 
-    @OneToMany(mappedBy = "MEMBER")
+    @OneToMany(mappedBy = "member")
     private List<MemberProduct> memberProducts = new ArrayList<>();
 }

@@ -13,7 +13,7 @@ public class Product {
 
     private String name;
 
-    @OneToMany(mappedBy = "PRODUCT")
+    @OneToMany(mappedBy = "product")
     private List<MemberProduct> productProducts = new ArrayList<>();
 
 //    @ManyToMany(mappedBy = "products") //양방향
