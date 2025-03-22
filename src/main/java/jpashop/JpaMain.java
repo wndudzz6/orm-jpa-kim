@@ -7,6 +7,7 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import jpashop.domain.*;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -28,8 +29,8 @@ public class JpaMain {
             foodMember.getFavoriteFoods().add("족발");
             foodMember.getFavoriteFoods().add("피자");
 
-            foodMember.getAddressHistory().add(new Address("city2", "street2", "2000"));
-            foodMember.getAddressHistory().add(new Address("city3", "street3", "3000"));
+            foodMember.getAddressHistory().add(new AddressEntity("city2", "street2", "2000"));
+            foodMember.getAddressHistory().add(new AddressEntity("city3", "street3", "3000"));
 
             em.persist(foodMember);
 
@@ -39,15 +40,19 @@ public class JpaMain {
             System.out.println("========START=========");
             FoodMember findMember = em.find(FoodMember.class, foodMember.getId());
 
-            List<Address> addressHistory = findMember.getAddressHistory();
-            for (Address address : addressHistory) {
-                System.out.println("address = " + address.getCity());
-            }
+            //city1->new city
+//            findMember.getHomeAddress().setCity("newCity"); 이렇게 변경하는 방식은 사이드 이펙트가 생길 수 있다
+            Address a = findMember.getHomeAddress();
+            findMember.setHomeAddress(new Address("newCity", a.getStreet(), a.getZipcode()));
 
-            Set<String> favoriteFoods = findMember.getFavoriteFoods();
-            for (String favoriteFood : favoriteFoods) {
-                System.out.println("favoriteFood = " + favoriteFood);
-            }
+            //치킨->한식
+            findMember.getFavoriteFoods().remove("치킨");
+            findMember.getFavoriteFoods().add("한식");
+
+            //equals, hashcode가 중요!
+            //city2-> newCity
+            findMember.getAddressHistory().remove(new AddressEntity("city2", "street2", "2000"));
+            foodMember.getAddressHistory().add(new AddressEntity("newCity", "street2", "2000"));
 
 
 

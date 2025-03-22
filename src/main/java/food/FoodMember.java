@@ -2,6 +2,7 @@ package food;
 
 import jakarta.persistence.*;
 import jpashop.domain.Address;
+import jpashop.domain.AddressEntity;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -22,20 +23,27 @@ public class FoodMember {
     @Embedded
     private Address homeAddress;
 
+    //값 타입으로 하기보다는 엔티티로 풀자
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "MEMBER_ID")
+    private List<AddressEntity> addressHistory = new ArrayList<>();
+
+
+    //값 타입 매핑
     @ElementCollection
     @CollectionTable(name = "FAVORITE_FOOD", joinColumns = @JoinColumn(name = "MEMBER_ID"))
     @Column(name = "FOOD_NAME")
     private Set<String> favoriteFoods = new HashSet<>();
+//
+//    @ElementCollection
+//    @CollectionTable(name = "ADDRESS", joinColumns = @JoinColumn(name = "MEMBER_ID"))
+//    private List<Address> addressHistory = new ArrayList<>();
 
-    @ElementCollection
-    @CollectionTable(name = "ADDRESS", joinColumns = @JoinColumn(name = "MEMBER_ID"))
-    private List<Address> addressHistory = new ArrayList<>();
-
-    public List<Address> getAddressHistory() {
+    public List<AddressEntity> getAddressHistory() {
         return addressHistory;
     }
 
-    public void setAddressHistory(List<Address> addressHistory) {
+    public void setAddressHistory(List<AddressEntity> addressHistory) {
         this.addressHistory = addressHistory;
     }
 
