@@ -40,4 +40,13 @@ public class JpqlMember {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    @Override
+    public String toString() {
+        return "JpqlMember{" +
+                "age=" + age +
+                ", id=" + id +
+                ", username='" + username + '\''+
+                '}';
+    }
 }

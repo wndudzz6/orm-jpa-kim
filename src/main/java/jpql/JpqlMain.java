@@ -12,19 +12,23 @@ public class JpqlMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try{
-            JpqlMember member = new JpqlMember();
-            member.setUsername("member1");
-            member.setAge(10);
-            em.persist(member);
+            for (int i = 0; i < 100; i++) {
+                JpqlMember member = new JpqlMember();
+                member.setUsername("member"+i);
+                member.setAge(i);
+                em.persist(member);
+            }
 
-            TypedQuery<JpqlMember> query = em.createQuery("select m from JpqlMember m", JpqlMember.class);
+            em.flush();
+            em.clear();
 
-            List<JpqlMember> result = query.getResultList();
-            System.out.println("result = "+result);
+            List<JpqlMember> result = em.createQuery("select m from JpqlMember m order by m.username desc ", JpqlMember.class)
+                    .setFirstResult(1)
+                    .setMaxResults(10)
+                    .getResultList();
 
-            Query query2 = em.createQuery("select m.username, m.age from JpqlMember m", JpqlMember.class);
-
-
+            System.out.println("result.size : "+result.size());
+            System.out.println(result);
 
             tx.commit();
         }catch (Exception e){
